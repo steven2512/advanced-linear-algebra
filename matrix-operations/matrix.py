@@ -10,6 +10,12 @@ class Matrix:
         self.content = content
         self.rows = rows 
         self.columns = columns
+    def get_rows(self):
+        return self.rows
+    def get_columns(self):
+        return self.columns
+    def get_content(self):
+        return self.content
     def is_valid(self):
         """Return a Boolean to confirm validity of a matrix"""
         return (len(self.content) % self.columns) == 0 and (len(self.content) // self.columns) == self.rows
