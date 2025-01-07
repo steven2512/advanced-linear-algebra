@@ -1,14 +1,11 @@
-from matrix import *
+from matrix import Matrix
+from validity import sub_add_check
 
 def addition(A: Matrix, B: Matrix):
     """Addition operation A + B"""
-    #Validity check
-    if not A.is_valid() or not B.is_valid():
-        return f"One or more Matrices are invalid"
-    
-    #dimensions of matrix A and B must completely match
-    elif A.get_rows() != B.get_rows() or A.get_columns() != B.get_columns():
-        return f"Matrix A and B's dimensions do not match" 
+    #validity check
+    if not sub_add_check(A, B):
+        return
 
     #Addition process
     final_matrix_content = []

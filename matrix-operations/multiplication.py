@@ -1,8 +1,9 @@
-from matrix import *
+from matrix import Matrix
+from validity import multiplication_check
 
 def multiplication(A: Matrix, B: Matrix):
-    if not valid_check(A,B):
-        return False
+    if not multiplication_check(A,B):
+        return
     
     final_matrix_content = []
     for i in range(A.get_rows()):
@@ -15,14 +16,7 @@ def multiplication(A: Matrix, B: Matrix):
             final_matrix_content.append(sum)
     return Matrix(content = final_matrix_content, rows = A.get_rows(), columns = B.get_columns())
 
-def valid_check(A: Matrix, B: Matrix):
-    if not A.is_valid() or not B.is_valid():
-        print("One or more matrices are invalid")
-        return False
-    elif A.get_columns() != B.get_rows():
-        print("A's columns does not match B's rows")
-        return False
-    return True
+
 
 """Small Test Case"""
 # A = Matrix(content = [2,4,3,2,1,1], rows = 3, columns = 2)
