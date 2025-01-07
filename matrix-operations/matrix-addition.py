@@ -1,7 +1,7 @@
 from matrix import *
 
 def matrix_addition(a: Matrix, b: Matrix):
-    
+    """Addition operation A + B"""
     #Validity check
     if not a.is_valid or not b.is_valid:
         return f"One or more Matrices are invalid"
