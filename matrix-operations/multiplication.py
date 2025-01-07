@@ -16,6 +16,8 @@ def matrix_multiplication(a: Matrix, b: Matrix):
             final_matrix_content.append(sum)
     return Matrix(content = final_matrix_content, rows = a.get_rows(), columns = b.get_columns())
 
-a = Matrix(content = [2,4,3,2,1,1], rows = 3, columns = 2)
-b = Matrix(content = [1, 2, 3, 4, 4, 5, 6, 7], rows = 2, columns = 4)
-print(matrix_multiplication(a, b).is_valid())
+
+# #Test cases
+# a = Matrix(content = [2,4,3,2,1,1], rows = 3, columns = 2)
+# b = Matrix(content = [1, 2, 3, 4, 4, 5, 6, 7], rows = 2, columns = 4)
+# print(matrix_multiplication(a, b).is_valid())
