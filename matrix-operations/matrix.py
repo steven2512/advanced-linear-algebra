@@ -12,7 +12,8 @@ class Matrix:
         return self.content
     def is_valid(self):
         """Return a Boolean to confirm validity of a matrix"""
-        return (len(self.content) % self.columns) == 0 and (len(self.content) // self.columns) == self.rows
+        if (len(self.content) % self.columns) == 0 and (len(self.content) // self.columns) == self.rows:
+            raise ValueError("Matrix's total entries does not fit into dimensions associated")
     def __len__(self):
         """Total entries of the matrix"""
         return len(self.content)

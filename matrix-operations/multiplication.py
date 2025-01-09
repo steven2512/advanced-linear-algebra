@@ -2,8 +2,7 @@ from matrix import Matrix
 from validity import multiplication_check
 
 def multiplication(A: Matrix, B: Matrix):
-    if not multiplication_check(A,B):
-        return
+    multiplication_check(A,B)
     
     final_matrix_content = []
     for i in range(A.get_rows()):
@@ -14,7 +13,12 @@ def multiplication(A: Matrix, B: Matrix):
                 o = k*B.get_columns()+j
                 sum+=A.get_content()[l]*B.get_content()[o]
             final_matrix_content.append(sum)
-    return Matrix(content = final_matrix_content, rows = A.get_rows(), columns = B.get_columns())
+    
+    return Matrix(
+                content = final_matrix_content, 
+                rows = A.get_rows(), 
+                columns = B.get_columns()
+                )
 
 
 
