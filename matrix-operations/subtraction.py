@@ -12,5 +12,5 @@ def subtraction(A: Matrix, B: Matrix):
     return Matrix(
                 content = final_matrix_content, 
                 rows = A.get_rows(), 
-                columns = A.get_columns()   
-                  )
+                columns = A.get_columns()
+                )
