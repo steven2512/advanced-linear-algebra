@@ -14,6 +14,8 @@ class Matrix:
         """Return a Boolean to confirm validity of a matrix"""
         if (len(self.content) % self.columns) != 0 or (len(self.content) // self.columns) != self.rows:
             raise ValueError("Matrix's total entries does not fit into dimensions (m x n) attributes associated")
+    def is_square(self):
+        return self.columns == self.rows
     def __len__(self):
         """Total entries of the matrix"""
         return len(self.content)
