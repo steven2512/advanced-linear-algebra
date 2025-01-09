@@ -2,7 +2,7 @@ from matrix import Matrix
 from validity import multiplication_check
 
 def multiplication(A: Matrix, B: Matrix):
-    """Mathematical Matrix Multiplication C = AB"""
+    """Mathematical Matrix Multiplication C = AB (Naive Method)"""
     multiplication_check(A, B)
     
     final_matrix_content = []
