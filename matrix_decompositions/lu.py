@@ -18,7 +18,7 @@ def lu(A: Matrix):
         #Fill up L and U diagonal's with pivots and 1's on the go for efficiency
         content_l[pivot_idx] = 1
         content_u[pivot_idx] = content[pivot_idx]
-        
+
         # if content[pivot_idx] == 0:
         #     pivoting()
         for j in range(under_pivot):
@@ -26,6 +26,17 @@ def lu(A: Matrix):
             mp = content[k] / content[pivot_idx] 
             content_l[k] = mp
             content_u[k] = 0
+    
+    l = Matrix(content = content_l, rows = row, columns = col)
+    u = Matrix(content = content_u, rows = col, columns = col)
+
+    return l,u
+
+A = Matrix(content = [2,1,4,5,3,2,1,2,1], rows = 3, columns = 3)
+
+l,u = lu(A)
+print(f"Matrix L is {l}")
+print(f"Matrix U is {u}")
             
             
 

@@ -20,5 +20,16 @@ class Matrix:
         """Total entries of the matrix"""
         return len(self.content)
     def __str__(self):
-        return f"{self.rows} x {self.columns} Matrix"
+        final = f"{self.rows} x {self.columns} Matrix\n ["
+        content = self.content
+        for i in range(self.rows):
+            for j in range(self.columns):
+                final+=str(content[self.columns * i + j])
+                final+='   '
+            if i <self.rows-1:
+                final+='\n'
+                final+='  '
+        final += ']'
+        return final
+
 
