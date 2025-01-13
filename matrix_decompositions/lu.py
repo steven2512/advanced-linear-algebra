@@ -1,4 +1,7 @@
 from matrix_operations.matrix import Matrix
+from matrix_operations.multiplication import multiplication
+
+import pdb
 
 def lu(A: Matrix):
     A.is_valid()
@@ -11,6 +14,7 @@ def lu(A: Matrix):
     content_l = [0] * len(A)
     content_u = [0] * (col**2)
 
+
     for i in range(iters):
         under_pivot = iters - i
         pivot_idx = col * i + i
@@ -18,15 +22,20 @@ def lu(A: Matrix):
         #Fill up L and U diagonal's with pivots and 1's on the go for efficiency
         content_l[pivot_idx] = 1
         content_u[pivot_idx] = content[pivot_idx]
-
+        print(f"Pivot index is {pivot_idx}")
         # if content[pivot_idx] == 0:
         #     pivoting()
         for j in range(under_pivot):
-            k = col * (j+1) + i
+            k = col * (j+i+1) + i
             mp = content[k] / content[pivot_idx] 
             content_l[k] = mp
             content_u[k] = 0
-    
+            print(f"Index k is {k}")
+
+    #Fill up the last pivot positions in L and U
+    content_l[col * (row-1) + (row-1)] = 1
+    content_u[col * (row-1) + (row-1)] = content[col * (row-1) + (row-1)]
+        
     l = Matrix(content = content_l, rows = row, columns = col)
     u = Matrix(content = content_u, rows = col, columns = col)
 
@@ -37,6 +46,7 @@ A = Matrix(content = [2,1,4,5,3,2,1,2,1], rows = 3, columns = 3)
 l,u = lu(A)
 print(f"Matrix L is {l}")
 print(f"Matrix U is {u}")
+print(f"Matrix LU is equal to {multiplication(l,u)}")
             
             
 

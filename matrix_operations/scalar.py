@@ -1,4 +1,4 @@
-from matrix import Matrix
+from matrix_operations.matrix import Matrix
 
 def scalar(A: Matrix, scalar: int):
     "Scalar Multiplication cA"

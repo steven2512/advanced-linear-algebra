@@ -1,5 +1,5 @@
-from matrix import Matrix
-from validity import sub_add_check
+from matrix_operations.matrix import Matrix
+from matrix_operations.validity import sub_add_check
 
 def addition(A: Matrix, B: Matrix):
     """Addition operation A + B"""

@@ -1,4 +1,4 @@
-from matrix import Matrix
+from matrix_operations.matrix import Matrix
 
 def determinant(A: Matrix):
     """Determinant of a matrix A/ Scaling factor of linear transformation A"""

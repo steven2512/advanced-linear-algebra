@@ -1,4 +1,4 @@
-from matrix import Matrix
+from matrix_operations.matrix import Matrix
 
 def multiplication_check(A: Matrix, B: Matrix):
     #Individual Matrix Validity check

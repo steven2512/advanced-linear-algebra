@@ -1,4 +1,4 @@
-from matrix import Matrix
+from matrix_operations.matrix import Matrix
 
 def tranpose(A: Matrix):
     """Tranpose of a matrix A, invert columns and rows"""

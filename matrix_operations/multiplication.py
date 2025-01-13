@@ -1,5 +1,5 @@
-from matrix import Matrix
-from validity import multiplication_check
+from matrix_operations.matrix import Matrix
+from matrix_operations.validity import multiplication_check
 
 def multiplication(A: Matrix, B: Matrix):
     """Mathematical Matrix Multiplication C = AB (Naive Method)"""
