@@ -8,7 +8,6 @@ This folder provides a Python-based foundation for matrix and vector operations,
 ## ✨ Features
 - Matrix addition and subtraction
 - Scalar and matrix multiplication
-- Dot product (vector and matrix)
+- Determinant
 - Transposition
-- Identity matrix creation
 - Basic error handling for dimension checks
