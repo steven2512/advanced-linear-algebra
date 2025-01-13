@@ -44,12 +44,14 @@ def lu(A: Matrix):
 
     return l,u
 
-A = Matrix(content = [2,1,4,5,3,2,1,2,1], rows = 3, columns = 3)
-print(f"Matrix A is {A}")
-l,u = lu(A)
-print(f"Matrix L is {l}")
-print(f"Matrix U is {u}")
-print(f"Matrix LU is equal to {multiplication(l,u)}")
+
+#3x3 matrix
+# A = Matrix(content = [2,1,4,5,3,2,1,2,1], rows = 3, columns = 3)
+# print(f"Matrix A is {A}")
+# l,u = lu(A)
+# print(f"Matrix L is {l}")
+# print(f"Matrix U is {u}")
+# print(f"Matrix LU is equal to {multiplication(l,u)}")
             
             
 

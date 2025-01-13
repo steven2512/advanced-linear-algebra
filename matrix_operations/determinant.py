@@ -1,4 +1,5 @@
 from matrix_operations.matrix import Matrix
+from matrix_decompositions.lu import lu
 
 def determinant(A: Matrix):
     """Determinant of a matrix A/ Scaling factor of linear transformation A"""
@@ -24,6 +25,15 @@ def determinant(A: Matrix):
     
     #nxn case
 
+    #Use LU decomposition
+    l,u = lu(A)
+
+    det = 1
+
+    for i in range(A.get_rows()):
+        index = A.get_columns() * i + i
+        det *= l.get_content()[index] * u.get_content()[index]
+
     return det
 
 
@@ -35,3 +45,7 @@ def determinant(A: Matrix):
 #3x3 Test Case
 # A = Matrix(content = [1,12,3,4,5,6,7,8,9], rows = 3, columns = 3)
 # print(determinant(A))
+
+#nxn case
+A = Matrix(content = [1,12,3,4,5,6,7,8,9,10,11,12,14,25,30,32], rows = 4, columns = 4)
+print(determinant(A))
