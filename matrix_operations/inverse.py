@@ -1,6 +1,8 @@
 from matrix_operations.matrix import Matrix
 from matrix_operations.determinant import determinant
 from matrix_decompositions.lu import lu
+from matrix_operations.tranpose import tranpose
+from matrix_operations.scalar import scalar
 
 
 def inverse(A: Matrix):
@@ -25,22 +27,29 @@ def inverse(A: Matrix):
 
     #3x3 case
     if row == 3 and col == 3:
-        sc = 1/det
         cof_cont = [
-                    sc*(cont[4]*cont[8]-cont[5]*cont[7]),
-                    -sc*(cont[3]*cont[8]-cont[5]*cont[6]),
-                    sc*(cont[3]*cont[7]-cont[4]*cont[6]),
-                    -sc*(cont[1]*cont[8]-cont[2]*cont[7]),
-                    sc*(cont[0]*cont[8]-cont[2]*cont[6]),
-                    -sc*(cont[0]*cont[7]-cont[1]*cont[6]),
-                    sc*(cont[1]*cont[5]-cont[2]*cont[4]),
-                    -sc*(cont[0]*cont[5]-cont[2]*cont[3]),
-                    sc*(cont[0]*cont[4]-cont[1]*cont[3])
+                    (cont[4]*cont[8]-cont[5]*cont[7]),
+                    -(cont[3]*cont[8]-cont[5]*cont[6]),
+                    (cont[3]*cont[7]-cont[4]*cont[6]),
+                    -(cont[1]*cont[8]-cont[2]*cont[7]),
+                    (cont[0]*cont[8]-cont[2]*cont[6]),
+                    -(cont[0]*cont[7]-cont[1]*cont[6]),
+                    (cont[1]*cont[5]-cont[2]*cont[4]),
+                    -(cont[0]*cont[5]-cont[2]*cont[3]),
+                    (cont[0]*cont[4]-cont[1]*cont[3])
                     ]
         cof_matrix = Matrix(content = cof_cont,
                             rows = 3,
-                            columns = 3) 
+                            columns = 3)
+        inverse = scalar(tranpose(cof_matrix), 1/det)
 
-    return inverse        
+    return inverse
+
+#Test case 3x3
+A = Matrix(content = [2, -1, 3, 0, 4, -2, 5, 1, 1],
+           rows = 3,
+           columns = 3)
+print(inverse(A))
+
 
     

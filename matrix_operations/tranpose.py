@@ -16,9 +16,9 @@ def tranpose(A: Matrix):
             columns = A.get_rows()
     )
 
-"""Small Test Case"""
-A = Matrix(content = [1,7,2,4,5,6,1,1,1,2,1,1], rows = 4, columns = 3)
-print(tranpose(A).get_content())
+# """Small Test Case"""
+# A = Matrix(content = [1,7,2,4,5,6,1,1,1,2,1,1], rows = 4, columns = 3)
+# print(tranpose(A).get_content())
 
     
 

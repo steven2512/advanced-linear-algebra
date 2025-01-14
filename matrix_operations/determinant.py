@@ -27,7 +27,6 @@ def determinant(A: Matrix):
     #We decompose any matrix A into a lower triagnular matrix L and uper triangular matrix U, so we have det(A) = det(L) * det(U) (determinant multiplicativity)
 
     l,u = lu(A)
-    print(l, u)
 
 
     det = 1
