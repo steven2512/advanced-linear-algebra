@@ -23,6 +23,24 @@ def inverse(A: Matrix):
                          columns = 2)
 
 
+    #3x3 case
+    if row == 3 and col == 3:
+        sc = 1/det
+        cof_cont = [
+                    sc*(cont[4]*cont[8]-cont[5]*cont[7]),
+                    -sc*(cont[3]*cont[8]-cont[5]*cont[6]),
+                    sc*(cont[3]*cont[7]-cont[4]*cont[6]),
+                    -sc*(cont[1]*cont[8]-cont[2]*cont[7]),
+                    sc*(cont[0]*cont[8]-cont[2]*cont[6]),
+                    -sc*(cont[0]*cont[7]-cont[1]*cont[6]),
+                    sc*(cont[1]*cont[5]-cont[2]*cont[4]),
+                    -sc*(cont[0]*cont[5]-cont[2]*cont[3]),
+                    sc*(cont[0]*cont[4]-cont[1]*cont[3])
+                    ]
+        cof_matrix = Matrix(content = cof_cont,
+                            rows = 3,
+                            columns = 3) 
+
     return inverse        
 
     
