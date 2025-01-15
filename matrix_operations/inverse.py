@@ -43,6 +43,10 @@ def inverse(A: Matrix):
                             columns = 3)
         inverse = scalar(tranpose(cof_matrix), 1/det)
 
+    #nxn case
+    l,u = lu(A)
+
+
     return inverse
 
 #Test case 3x3
