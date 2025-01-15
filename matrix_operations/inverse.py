@@ -45,15 +45,18 @@ def inverse(A: Matrix):
 
     #nxn case
     l,u = lu(A)
+    
 
 
     return inverse
 
-#Test case 3x3
-A = Matrix(content = [2, -1, 3, 0, 4, -2, 5, 1, 1],
-           rows = 3,
-           columns = 3)
-print(inverse(A))
+# #Test case 3x3
+# A = Matrix(content = [2, -1, 3, 0, 4, -2, 5, 1, 1],
+#            rows = 3,
+#            columns = 3)
+# print(inverse(A))
+
+# print(inverse(Matrix([2,7,8,0,7,1,0,0,9], rows = 3, columns = 3)))
 
 
     
