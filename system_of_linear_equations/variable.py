@@ -1,4 +1,5 @@
 class Variable:
+    """Represents standard Mathematical Variables used in equations"""
     def __init__(self, symbol):
         self.value = None
         self.symbol = symbol
