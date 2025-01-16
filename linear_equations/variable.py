@@ -8,4 +8,4 @@ class Variable:
     def set_value(self, value):
         self.value = value
     def __str__(self):
-        print(f"Variable/Unknown {self.symbol} = {self.value}")
+        print(f"{self.symbol} = {self.value}")

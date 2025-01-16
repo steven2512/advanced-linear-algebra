@@ -11,4 +11,4 @@ class Term:
     def get_coefficent(self):
         return self.coefficient
     def __str__(self):
-        return f"Term {self.coefficient}{self.variable if self.variable is not None else ''}"
+        return f"{self.coefficient}{self.variable if self.variable is not None else ''}"
