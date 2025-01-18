@@ -14,6 +14,8 @@ class Polynomial:
     def add_term(self, term: Term):
             self.terms.append(term)
 
+    def simplify(self, term):
+
     def __str__(self):
         final = ''
         for term in self.terms:

@@ -16,5 +16,7 @@ class Term:
         self.coefficient = self.coefficient / coefficient
     def multiply_coefficient(self, coefficient: int):
         self.coefficient = self.coefficient * coefficient
+    def flip_coefficient(self):
+        self.coefficient = -self.coefficient
     def __str__(self):
         return f"{str(self.coefficient)}{self.variable if self.variable is not None else ''}"
