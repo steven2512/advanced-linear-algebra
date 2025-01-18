@@ -1,4 +1,5 @@
 from linear_equations.variable import Variable
+import pdb
 
 class Term:
     "Represents a mathematical term (inclusive or exclusive of variables)"
@@ -11,4 +12,5 @@ class Term:
     def get_coefficent(self):
         return self.coefficient
     def __str__(self):
-        return f"{self.coefficient}{self.variable if self.variable is not None else ''}"
+        # pdb.set_trace()
+        return f"{str(self.coefficient)}{self.variable if self.variable is not None else ''}"

@@ -8,4 +8,5 @@ class Variable:
     def set_value(self, value):
         self.value = value
     def __str__(self):
-        print(f"{self.symbol} = {self.value}")
+        return f"{self.symbol}"
+
