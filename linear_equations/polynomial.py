@@ -12,6 +12,13 @@ class Polynomial:
         self.terms = terms
         self.operators = operators
 
+
+    def get_terms(self):
+        return self.terms
+
+    def add_term(self, term: Term):
+        self.terms.append(term)
+
     def __str__(self):
         final = ''
         for i in range(len(self.terms)):

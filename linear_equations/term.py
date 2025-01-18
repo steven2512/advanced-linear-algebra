@@ -3,7 +3,7 @@ import pdb
 
 class Term:
     "Represents a mathematical term (inclusive or exclusive of variables)"
-    def __init__(self, coefficient: int = 1, variable: Variable = None):
+    def __init__(self, coefficient: int, variable: Variable = None):
         self.coefficient = coefficient
         self.variable = variable
     def get_variable(self):
@@ -12,5 +12,4 @@ class Term:
     def get_coefficent(self):
         return self.coefficient
     def __str__(self):
-        # pdb.set_trace()
         return f"{str(self.coefficient)}{self.variable if self.variable is not None else ''}"
