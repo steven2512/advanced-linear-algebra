@@ -5,9 +5,10 @@ import pdb
 
 class Polynomial:
 
-    def __init__(self, terms: list[Term], operators = list[Operator]):
+    def __init__(self, terms: list[Term], operators: list[Operator] = []):
         if len(operators) != len(terms) - 1:
             raise ValueError("The number of Terms does not have the required number of Operators (operators != terms - 1)")
+        
         self.terms = terms
         self.operators = operators
 
@@ -15,7 +16,6 @@ class Polynomial:
         final = ''
         for i in range(len(self.terms)):
             final+=str(self.terms[i])
-            
             if i<len(self.terms)-1:
                 final+=str(self.operators[i])
         return final
