@@ -30,8 +30,8 @@ def solve(equation: Equation, variable: str):
         else:
             new_rhs.add_term(term)
     
-    #Simplify LHS
-    
+    #Simplify LHS and RHS
+
 
 
 

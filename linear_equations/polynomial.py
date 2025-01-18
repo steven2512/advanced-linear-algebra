@@ -14,8 +14,13 @@ class Polynomial:
     def add_term(self, term: Term):
             self.terms.append(term)
 
-    def simplify(self, term):
+    def simplify(self):
+        new_poly = Polynomial()
+        for term in self.terms:
 
+    def sort(self):
+        
+    
     def __str__(self):
         final = ''
         for term in self.terms:
