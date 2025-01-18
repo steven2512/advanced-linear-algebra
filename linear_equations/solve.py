@@ -8,19 +8,22 @@ def solve(equation: Equation, variable: str):
     term_lhs = lhs.get_terms()
     term_rhs = lhs.get_terms()
 
-    
-
-    new_lhs = 0
-    new_rhs = Polynomial()
+    new_lhs: Polynomial = Polynomial()
+    new_rhs: Polynomial = Polynomial()
 
     if variable not in term_lhs and variable not in term_rhs:
         raise ValueError(f"Variable {variable} does not exist in the equation")
 
-    main_term = 0
+    main_term: Term = 0
 
     for term in term_lhs:
         if term.get_variable() == variable:
             main_term = term
         else:
-            new_rhs.add_term(term, )
+            new_rhs.add_term(term)
+
+    for term in new_rhs:
+        term.divide_coefficient(main_term.get_coefficient())
+        
+    
 

@@ -24,14 +24,14 @@ class Polynomial:
         return final
 
 
-#Test
-var1 = Variable('x')
-var2 = Variable('y')
-term1 = Term(-2, var1)
-term2 = Term(4, var2)
-term3 = Term(-7)
-pol = Polynomial([term1, term2, term3])
-print(pol)
+# #Test
+# var1 = Variable('x')
+# var2 = Variable('y')
+# term1 = Term(-2, var1)
+# term2 = Term(4, var2)
+# term3 = Term(-7)
+# pol = Polynomial([term1, term2, term3])
+# print(pol)
 
 
         
