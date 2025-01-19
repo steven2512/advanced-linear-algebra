@@ -36,8 +36,27 @@ class Polynomial:
         merged_list = []
         i, j = 0,0
         while i < len(left_array) or j<len(right_array):
-            
-    
+            if i < len(left_array) and j<len(right_array):
+                if left_array[i]<right_array[j]:
+                    merged_list.append(left_array[i])
+                    i+=1
+                elif left_array[j]<right_array[i]:
+                    merged_list.append(right_array[j])
+                    j+=1
+                else:
+                    merged_list.append(left_array[i])
+                    merged_list.append(right_array[j])
+                    i+=1
+                    j+=1
+            elif i == len(left_array):
+                merged_list.append(right_array[j])
+                j+=1
+            else:
+                merged_list.append(left_array[i])
+                i+=1
+        return merged_list
+
+
     def __str__(self):
         final = ''
         for term in self.terms:
