@@ -1,6 +1,7 @@
 from linear_equations.term import Term
 from linear_equations.variable import Variable
 from linear_equations.operator import Operator
+from sorting_algorithms.merge_sort import merge_sort
 import pdb
 
 class Polynomial:
@@ -22,39 +23,7 @@ class Polynomial:
 
     def sort(self, terms: list[Term]):
         #Use merge sorts run in O(NlogN)
-        if len(self.terms) >1:
-            mid = len(self.terms)//2
-            left_array = self.sort(terms[:mid+1])
-            right_array = self.sort(terms[mid+1:])
-        else:
-            return terms
-        
-        sorted_list = self.merge(left_array, right_array)
-        return sorted_list
-
-    def merge(self, left_array: list, right_array: list):
-        merged_list = []
-        i, j = 0,0
-        while i < len(left_array) or j<len(right_array):
-            if i < len(left_array) and j<len(right_array):
-                if left_array[i]<right_array[j]:
-                    merged_list.append(left_array[i])
-                    i+=1
-                elif left_array[j]<right_array[i]:
-                    merged_list.append(right_array[j])
-                    j+=1
-                else:
-                    merged_list.append(left_array[i])
-                    merged_list.append(right_array[j])
-                    i+=1
-                    j+=1
-            elif i == len(left_array):
-                merged_list.append(right_array[j])
-                j+=1
-            else:
-                merged_list.append(left_array[i])
-                i+=1
-        return merged_list
+        new_terms = merge_sort(array = terms, crit = terms)
 
 
     def __str__(self):

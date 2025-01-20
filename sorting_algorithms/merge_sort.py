@@ -1,16 +1,17 @@
-def merge_sort(self, array: list):
+def merge_sort(array: list):
         #Use merge sorts run in O(NlogN)
         if len(array) >1:
             mid = len(array)//2
-            left_array = merge_sort(array[:mid+1])
-            right_array = merge_sort(array[mid+1:])
+            left_array = merge_sort(array[:mid])
+            right_array = merge_sort(array[mid:])
         else:
             return array
         
         sorted_list = merge(left_array, right_array)
+        
         return sorted_list
 
-def merge(self, left_array: list, right_array: list):
+def merge(left_array: list, right_array: list):
     merged_list = []
     i, j = 0,0
     while i < len(left_array) or j<len(right_array):
@@ -18,7 +19,7 @@ def merge(self, left_array: list, right_array: list):
             if left_array[i]<right_array[j]:
                 merged_list.append(left_array[i])
                 i+=1
-            elif left_array[j]<right_array[i]:
+            elif right_array[j]<left_array[i]:
                 merged_list.append(right_array[j])
                 j+=1
             else:
@@ -33,3 +34,7 @@ def merge(self, left_array: list, right_array: list):
             merged_list.append(left_array[i])
             i+=1
     return merged_list
+
+#Small Test Case
+print(merge_sort([42, 7, 19, 3, 88, 15, 27, 1, 63, 34]
+))
