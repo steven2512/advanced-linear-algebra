@@ -17,7 +17,7 @@ class Term:
             raise ValueError("The term being added does not have matching variable or does not have matching exponent")
         
         self.coefficient+=term.get_coefficient()
-    def get_coefficent(self):
+    def get_coefficient(self):
         return self.coefficient
     def divide_coefficient(self, coefficient: int):
         self.coefficient /= coefficient
