@@ -19,27 +19,28 @@ class Polynomial:
         new_terms = []
         self.sort()
 
-        temp = []
+        current = None
+        sum = 0
         for i in range(len(self.terms)):
             var = self.terms[i].get_variable()
-            if temp:
-                if var.get_exponent() != temp[-1].get_variable().get_exponent():
-                    new_terms.append(self.sum_terms(temp))
-                    temp.clear()
-            temp.append(self.terms[i])
-
+            if current is not None:
+                if var.get_exponent() != current.get_variable().get_exponent():
+                    if sum !=0:
+                        new_terms.append(Term(sum, current.get_variable()))
+                    current = self.terms[i]
+                    sum = 0
+                    sum+= current.get_coefficient()
+                else:
+                    sum+=self.terms[i].get_coefficient()
+            else:
+                current = self.terms[i]
+                sum+=current.get_coefficient()
         
-        if temp:
-            new_terms.append(self.sum_terms(temp))
+        if sum != 0:
+            new_terms.append(Term(sum, current.get_variable()))
+
         self.terms = new_terms
 
-    def sum_terms(self, terms):
-        sum = 0
-        for term in terms:
-            sum+=term.get_coefficient()
-
-        return Term(coefficient=sum, 
-                    variable = terms[-1].get_variable())
 
     def sort(self):
         "Sort polynomials from largest exponent to smallest exponent"
