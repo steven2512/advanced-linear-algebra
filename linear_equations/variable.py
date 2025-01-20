@@ -11,5 +11,5 @@ class Variable:
     def set_value(self, value):
         self.value = value
     def __str__(self):
-        return f"{self.symbol}"
+        return f"{self.symbol}{'^'+str(self.exponent) if self.exponent != 1 else ''}"
 

@@ -19,12 +19,13 @@ class Polynomial:
         new_poly = Polynomial()
         self.sort(self.terms)
         
-        for term in self.terms:
+        # for term in self.terms:
 
-    def sort(self, terms: list[Term]):
+    def sort(self):
         #Use merge sorts run in O(NlogN)
-        new_terms = merge_sort(array = terms, crit = terms)
+        new_terms = merge_sort(array = self.terms, func = lambda a: a.get_variable().get_exponent())
 
+        return self
 
     def __str__(self):
         final = ''
@@ -36,14 +37,15 @@ class Polynomial:
         return final
 
 
-# #Test
-# var1 = Variable('x')
-# var2 = Variable('y')
-# term1 = Term(-2, var1)
-# term2 = Term(4, var2)
-# term3 = Term(-7)
-# pol = Polynomial([term1, term2, term3])
-# print(pol)
+#Test
+var1 = Variable('x', 7)
+var2 = Variable('x', 3)
+var3 = Variable('x', 5)
+term1 = Term(-2, var1)
+term2 = Term(4, var2)
+term3 = Term(5, var3)
+pol = Polynomial([term1, term2, term3])
+print(pol.sort())
 
 
         
