@@ -24,7 +24,7 @@ class Polynomial:
         for i in range(len(self.terms)):
             var = self.terms[i].get_variable()
             if current is not None:
-                if var.get_exponent() != current.get_variable().get_exponent():
+                if var.get_exponent() != current.get_variable().get_exponent() or var.get_symbol() != current.get_variable().get_symbol():
                     if sum !=0:
                         new_terms.append(Term(sum, current.get_variable()))
                     current = self.terms[i]
@@ -32,6 +32,7 @@ class Polynomial:
                     sum+= current.get_coefficient()
                 else:
                     sum+=self.terms[i].get_coefficient()
+
             else:
                 current = self.terms[i]
                 sum+=current.get_coefficient()
@@ -45,7 +46,7 @@ class Polynomial:
     def sort(self):
         "Sort polynomials from largest exponent to smallest exponent"
         #Use merge sorts run in O(NlogN)
-        self.terms = merge_sort(array = self.terms, func = lambda a: -a.get_variable().get_exponent())
+        self.terms = merge_sort(array = self.terms, func = lambda a: (-a.get_variable().get_exponent(), a.get_variable().get_symbol()))
 
     def __str__(self):
         final = ''
@@ -58,13 +59,26 @@ class Polynomial:
 
 
 #Test
-var1 = Variable('x', 3)
-var2 = Variable('x', 3)
-var3 = Variable('x', 4)
+var1 = Variable('t', 5)
+var2 = Variable('t', 5)
+var3 = Variable('c', 3)
+var4 = Variable('v', 3)
+var5 = Variable('k', 4)
+var6 = Variable('q', 9)
+var7 = Variable('k', 11)
+var8 = Variable('k', 11)
+var9 = Variable('l', 9)
+var10 = Variable('f', 2)
 term1 = Term(-2, var1)
 term2 = Term(4, var2)
 term3 = Term(5, var3)
-pol = Polynomial([term1, term2, term3])
+term4 = Term(-2, var4)
+term5 = Term(4, var5)
+term6 = Term(5, var6)
+term7 = Term(-2, var7)
+term8 = Term(4, var8)
+term9 = Term(5, var9)
+pol = Polynomial([term1, term2, term3, term4, term5, term6, term7, term8, term9])
 pol.simplify()
 print(pol)
 
