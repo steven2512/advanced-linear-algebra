@@ -27,8 +27,6 @@ def solve(equation: Equation, variable: str):
             term.flip_coefficient()
             new_rhs.add_term(term)
         
-    
-  
     for term in rhs.get_terms():
         if term.get_variable().get_symbol() == variable:
             term.flip_coefficient()
@@ -37,16 +35,15 @@ def solve(equation: Equation, variable: str):
             new_rhs.add_term(term)
 
     
-    
-    
     #Simplify LHS and RHS
     new_lhs.simplify()
     new_rhs.simplify()
-    pdb.set_trace()
 
     #Divide by coefficient of main term (that consists the target variable)
     new_rhs.divide_polynomial(new_lhs.get_terms()[0].get_coefficient())
-
+    
+    #
+    print(f"{variable} =  {new_rhs}")
     return new_rhs
 
 def check_variable(lhs: list[Term], rhs: list[Term], variable: Variable):
@@ -63,16 +60,30 @@ def check_variable(lhs: list[Term], rhs: list[Term], variable: Variable):
     return found
 
     
-#Test
+# #Test 1
+# var1 = Variable('x')
+# var2 = Variable('x')
+# term1 = Term(5)
+# term2 = Term(3, var1)
+# term3 = Term(-2, var2)
+# term4 = Term(20)
+# pol1 = Polynomial([term1, term2])
+# pol2 = Polynomial([term3, term4])
+# eq = Equation(pol1, pol2)
+# print(eq)
+# solve(eq, 'x')
+
+#Test 2
 var1 = Variable('x')
 var2 = Variable('x')
-term1 = Term(2, var1)
-term2 = Term(4, var2)
-term3 = Term(7)
-term4 = Term(15)
-pol1 = Polynomial([term1, term2, term3])
-pol2 = Polynomial([term4])
+term1 = Term(-7)
+term2 = Term(1/2, var1)
+term3 = Term(3, var2)
+term4 = Term(8)
+pol1 = Polynomial([term1, term2])
+pol2 = Polynomial([term3, term4])
 eq = Equation(pol1, pol2)
 print(eq)
-print(solve(eq, 'x'))  
+solve(eq, 'x')
+
 
