@@ -74,16 +74,34 @@ def check_variable(lhs: list[Term], rhs: list[Term], variable: Variable):
 # solve(eq, 'x')
 
 #Test 2
+# var1 = Variable('x')
+# var2 = Variable('x')
+# term1 = Term(8)
+# term2 = Term(-5, var1)
+# term3 = Term(2, var2)
+# term4 = Term(1/3)
+# pol1 = Polynomial([term1, term2])
+# pol2 = Polynomial([term3, term4])
+# eq = Equation(pol1, pol2)
+# print(eq)
+# solve(eq, 'x')
+
+#Test 3
 var1 = Variable('x')
 var2 = Variable('x')
-term1 = Term(-7)
-term2 = Term(1/2, var1)
-term3 = Term(3, var2)
-term4 = Term(8)
-pol1 = Polynomial([term1, term2])
-pol2 = Polynomial([term3, term4])
+var3 = Variable('y')
+var4 = Variable('y')
+term1 = Term(4, var1)
+term2 = Term(-3, var3)
+term3 = Term(7)
+term4 = Term(2, var2)
+term5 = Term(2.5, var4)
+term6 = Term(-9)
+pol1 = Polynomial([term1, term2, term3])
+pol2 = Polynomial([term4, term5, term6])
 eq = Equation(pol1, pol2)
 print(eq)
 solve(eq, 'x')
+
 
 
