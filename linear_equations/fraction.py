@@ -20,7 +20,6 @@ class Fraction:
     def __str__(self):
         return f"{self.numerator}/{self.denominator}"
     
-def gcd(num1: int, num2: int):
-    if 
+
         
     
