@@ -1,4 +1,6 @@
-from number_theory.lcm import gcd
+from number_theory.gcd import gcd
 
 def lcm(num1: int, num2: int):
-    return abs(num1 * num2) / gcd(num1, num2)
+    return int(abs(num1 * num2) / gcd(num1, num2))
+
+print(lcm(12,15))
