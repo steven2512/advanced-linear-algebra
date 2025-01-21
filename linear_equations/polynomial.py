@@ -6,8 +6,8 @@ import pdb
 
 class Polynomial:
 
-    def __init__(self, terms: list[Term] = []):
-        self.terms = terms
+    def __init__(self, terms: list[Term] = None):
+        self.terms = terms if terms is not None else []
 
     def get_terms(self):
         return self.terms
@@ -48,6 +48,10 @@ class Polynomial:
         #Use merge sorts run in O(NlogN)
         self.terms = merge_sort(array = self.terms, func = lambda a: (-a.get_variable().get_exponent(), a.get_variable().get_symbol()))
 
+    def divide_polynomial(self, divisor: int):
+        for term in self.terms:
+            term.divide_coefficient(divisor)
+
     def __str__(self):
         final = ''
         for term in self.terms:
@@ -58,29 +62,29 @@ class Polynomial:
         return final
 
 
-#Test
-var1 = Variable('t', 5)
-var2 = Variable('t', 5)
-var3 = Variable('c', 3)
-var4 = Variable('v', 3)
-var5 = Variable('k', 4)
-var6 = Variable('q', 9)
-var7 = Variable('k', 11)
-var8 = Variable('k', 11)
-var9 = Variable('l', 9)
-var10 = Variable('f', 2)
-term1 = Term(-2, var1)
-term2 = Term(4, var2)
-term3 = Term(5, var3)
-term4 = Term(-2, var4)
-term5 = Term(4, var5)
-term6 = Term(5, var6)
-term7 = Term(-2, var7)
-term8 = Term(4, var8)
-term9 = Term(5, var9)
-pol = Polynomial([term1, term2, term3, term4, term5, term6, term7, term8, term9])
-pol.simplify()
-print(pol)
+# #Test
+# var1 = Variable('t', 5)
+# var2 = Variable('t', 5)
+# var3 = Variable('c', 3)
+# var4 = Variable('v', 3)
+# var5 = Variable('k', 4)
+# var6 = Variable('q', 9)
+# var7 = Variable('k', 11)
+# var8 = Variable('k', 11)
+# var9 = Variable('l', 9)
+# var10 = Variable('f', 2)
+# term1 = Term(-2, var1)
+# term2 = Term(4, var2)
+# term3 = Term(5, var3)
+# term4 = Term(-2, var4)
+# term5 = Term(4, var5)
+# term6 = Term(5, var6)
+# term7 = Term(-2, var7)
+# term8 = Term(4, var8)
+# term9 = Term(5, var9)
+# pol = Polynomial([term1, term2, term3, term4, term5, term6, term7, term8, term9])
+# pol.simplify()
+# print(pol)
 
 
         

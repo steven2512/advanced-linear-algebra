@@ -3,12 +3,10 @@ import pdb
 
 class Term:
     "Represents a mathematical term (inclusive or exclusive of variables)"
-    def __init__(self, coefficient: int, variable: Variable = None):
+    def __init__(self, coefficient: int, variable: Variable = Variable('....', 0)):
         self.coefficient = coefficient
         self.variable = variable
     def get_variable(self):
-        if self.variable is None:
-            raise ValueError(f"This term has no variable")
         return self.variable
     def add_term(self, term):
         var: Variable = term.get_variable()
@@ -19,10 +17,10 @@ class Term:
         self.coefficient+=term.get_coefficient()
     def get_coefficient(self):
         return self.coefficient
-    def divide_coefficient(self, coefficient: int):
-        self.coefficient /= coefficient
-    def multiply_coefficient(self, coefficient: int):
-        self.coefficient *= coefficient
+    def divide_coefficient(self, divisor: int):
+        self.coefficient /= divisor
+    def multiply_coefficient(self, multiplicant: int):
+        self.coefficient *= multiplicant
     def flip_coefficient(self):
         self.coefficient = -self.coefficient
     def __str__(self):

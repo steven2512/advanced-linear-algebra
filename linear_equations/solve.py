@@ -1,13 +1,15 @@
 from linear_equations.equation import Equation
 from linear_equations.term import Term
 from linear_equations.polynomial import Polynomial
+from linear_equations.variable import Variable
+import pdb
 
 def solve(equation: Equation, variable: str):
     lhs: Polynomial = equation.get_lhs()
     rhs: Polynomial = equation.get_rhs()
 
-
-    if variable not in lhs.get_terms() and variable not in rhs.get_terms():
+    found = check_variable(lhs.get_terms(), rhs.get_terms(), variable)
+    if not found:
         raise ValueError(f"Variable {variable} does not exist in the equation")
     
     #Initialize new lhs and rhs
@@ -16,37 +18,61 @@ def solve(equation: Equation, variable: str):
     
     #Put all terms that contain target variable to LHS
     #Put all other terms to RHS
-    for term in lhs.get_terms():
-        if term.get_variable() == variable:
-            new_lhs.add_term(term)
-        else:
-            term.flip_coefficient()
-            new_rhs.add_term(term)
     
+    for term in lhs.get_terms():
+        if term.get_variable().get_symbol() == variable:
+            new_lhs.add_term(term)
+              
+        else:
+            term.flip_coefficient()
+            new_rhs.add_term(term)
+        
+    
+  
     for term in rhs.get_terms():
-        if term.get_variable() == variable:
+        if term.get_variable().get_symbol() == variable:
             term.flip_coefficient()
             new_lhs.add_term(term)
         else:
             new_rhs.add_term(term)
+
+    
+    
     
     #Simplify LHS and RHS
+    new_lhs.simplify()
+    new_rhs.simplify()
+    pdb.set_trace()
 
-
-
+    #Divide by coefficient of main term (that consists the target variable)
+    new_rhs.divide_polynomial(new_lhs.get_terms()[0].get_coefficient())
 
     return new_rhs
 
+def check_variable(lhs: list[Term], rhs: list[Term], variable: Variable):
+    found = False
+    for term in lhs:
+        if variable == term.get_variable().get_symbol():
+            found = True
+            break
+    if not found:
+        for term in rhs:
+            if variable == term.get_variable().get_symbol():
+                found = True
+                break
+    return found
+
     
-# #Test
-# var1 = Variable('x')
-# var2 = Variable('y')
-# term1 = Term(2, var1)
-# term2 = Term(4, var2)
-# term3 = Term(7)
-# term4 = Term(15)
-# pol1 = Polynomial([term1, term2, term3], [Operator('+'), Operator("-")])
-# pol2 = Polynomial([term4], [])
-# eq = Equation(pol1, pol2)
-# print(eq)  
+#Test
+var1 = Variable('x')
+var2 = Variable('x')
+term1 = Term(2, var1)
+term2 = Term(4, var2)
+term3 = Term(7)
+term4 = Term(15)
+pol1 = Polynomial([term1, term2, term3])
+pol2 = Polynomial([term4])
+eq = Equation(pol1, pol2)
+print(eq)
+print(solve(eq, 'x'))  
 
