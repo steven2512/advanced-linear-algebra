@@ -1,7 +1,8 @@
 from linear_equations.solve import solve
-from matrix_operations.matrix import Matrix
+from matrix_operations.matrix import Matrix, identity
 from matrix_operations.multiplication import multiplication
 from matrix_decompositions.lu import lu
+from linear_equations.equation import Equation, build_equations
 
 def lu_solve(A: Matrix, b: Matrix):
     A.is_valid()
@@ -12,4 +13,5 @@ def lu_solve(A: Matrix, b: Matrix):
     l, u = lu(A)
 
     #Solving Ly = b, setting y = Ux
-    multiplication(l, Matrix())
+    #Building equations:
+    build_equations(A, b)
