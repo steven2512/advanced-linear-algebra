@@ -4,6 +4,9 @@ class Matrix:
         self.content = content
         self.rows = rows 
         self.columns = columns
+
+    def is_vector(self):
+        return self.rows >= 1 and self.columns == 1
     def get_rows(self):
         return self.rows
     def get_columns(self):
@@ -31,5 +34,12 @@ class Matrix:
                 final+='  '
         final += ']'
         return final
+    
+def identity(n: int):
+    return Matrix(
+        content = [1 if i == (i % n)*n + i else 0 for i in range(n**2)], rows = n, 
+        columns = n)
+            
+
 
 

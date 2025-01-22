@@ -2,6 +2,8 @@ from linear_equations.equation import Equation
 from linear_equations.term import Term
 from linear_equations.polynomial import Polynomial
 from linear_equations.variable import Variable
+from linear_equations.fraction import Fraction
+import numpy as np
 import pdb
 
 def solve(equation: Equation, variable: str):

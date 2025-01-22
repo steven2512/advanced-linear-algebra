@@ -45,6 +45,8 @@ def inverse(A: Matrix):
 
     #nxn case
     l,u = lu(A)
+
+    
     
 
 
