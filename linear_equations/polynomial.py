@@ -40,6 +40,9 @@ class Polynomial:
         if sum != 0:
             new_terms.append(Term(sum, current.get_variable()))
 
+        if not new_terms:
+            new_terms.append(Term(0))
+
         self.terms = new_terms
 
 

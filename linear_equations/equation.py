@@ -50,7 +50,7 @@ class Equation:
         return f'{self.lhs}={self.rhs}'
     
 def build_equations(A: Matrix, b: Matrix) -> list[Equation]:
-    variables = [Variable('a'*(i+1)) for i in range(A.get_columns())]
+    variables = [Variable(f'a{i+1}') for i in range(A.get_columns())]
     equations = [0 for i in range(A.get_rows())]
     # pdb.set_trace()
     for i in range(A.get_rows()):

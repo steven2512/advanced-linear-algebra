@@ -33,6 +33,8 @@ class Matrix:
         content = self.content
         for i in range(self.rows):
             for j in range(self.columns):
+                
+                print(final)
                 final+=str(content[self.columns * i + j])
                 final+='   '
             if i <self.rows-1:

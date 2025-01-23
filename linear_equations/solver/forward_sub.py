@@ -4,14 +4,16 @@ from matrix_operations.matrix import Matrix
 
 def forward_sub(system: list[Equation]) -> list[float]:
     result = [0] * len(system)
-    current = solve(system[0], 'a').get_terms()[0].get_coefficient()
+    print(f"Current system[0] is {system[0]}")
+    # pdb.set_trace()
+    current = solve(system[0], 'a1').get_terms()[0].get_coefficient()
     result[0] = current
     for i in range(1, len(system)):
         front = system[i]
         for j in range(0, i):
-            front = front.substitute('a'*(j+1), result[j])
+            front = front.substitute(f'a{j+1}', result[j])
         # pdb.set_trace()
-        current = solve(front, 'a'*(i+1)).get_terms()[0].get_coefficient()
+        current = solve(front, f'a{i+1}').get_terms()[0].get_coefficient()
         result[i] = current
     return result
 

@@ -49,10 +49,9 @@ def inverse(A: Matrix):
     l,u = lu(A)
     I = identity(A.get_columns())
     final = []
-    # pdb.set_trace()
     for i in range(A.get_columns()):
-        final.append(lu_solve(A, Matrix(I.get_column_content(i), I.get_rows(), 1)))
-
+        final.extend(lu_solve(A, Matrix(I.get_column_content(i), I.get_rows(), 1)))
+        
     inverse = Matrix(content= final, rows = A.get_rows(), columns = A.get_columns())
 
 

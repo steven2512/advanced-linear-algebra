@@ -22,6 +22,7 @@ def lu_solve(A: Matrix, b: Matrix):
     #Building system of linear equations:
     system = build_equations(l, b)
     #Special case - back sub
+    # pdb.set_trace()
     y = Matrix(content = forward_sub(system), rows = l.get_columns(), columns = b.get_columns())
     # pdb.set_trace()
     
