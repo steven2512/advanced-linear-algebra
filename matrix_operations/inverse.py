@@ -50,13 +50,19 @@ def inverse(A: Matrix):
     I = identity(A.get_columns())
     final = []
     for i in range(A.get_columns()):
-        final.extend(lu_solve(A, Matrix(I.get_column_content(i), I.get_rows(), 1)))
+        column_inverse = lu_solve(A, Matrix(I.get_column_content(i), I.get_rows(), 1)).get_content()
 
-    inverse = tranpose(Matrix(content= final, rows = A.get_rows(), columns = A.get_columns()))
+        final.extend(column_inverse)
+
+    inverse = tranpose(Matrix(
+        content= final, 
+        rows = A.get_rows(), 
+        columns = A.get_columns()
+        ))
 
     return inverse
 
-#Test case 3x3
+#Test case 4x4
 A = Matrix(content = [
     4, 1, 1, 1,
     2, 5, 1, 1,

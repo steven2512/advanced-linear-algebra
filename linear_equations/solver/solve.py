@@ -44,9 +44,7 @@ def solve(equation: Equation, variable: str):
 
     #Divide by coefficient of main term (that consists the target variable)
     new_rhs.divide_polynomial(new_lhs.get_terms()[0].get_coefficient())
-    
-    #
-    # print(f"{variable} =  {new_rhs}")
+
     return new_rhs
 
     

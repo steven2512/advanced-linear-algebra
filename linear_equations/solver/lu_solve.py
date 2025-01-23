@@ -11,6 +11,8 @@ import pdb
 
 
 def lu_solve(A: Matrix, b: Matrix):
+    """Solving sytem of linear equations using LU decomposition
+        Decompose Ax = b to LUx = b, first set y = Ux, solves Ly = b then finally solves Ux = y to get final vector x"""
     A.is_valid()
     b.is_valid()
     if not b.is_vector():
@@ -21,13 +23,13 @@ def lu_solve(A: Matrix, b: Matrix):
     #Solving Ly = b, setting y = Ux
     #Building system of linear equations:
     system = build_equations(l, b)
-    #Special case - back sub
-    # pdb.set_trace()
+
+    #Using Forward Substituion to solve system of linear equations that are lower triangular
     y = Matrix(content = forward_sub(system), rows = l.get_columns(), columns = b.get_columns())
-    # pdb.set_trace()
     
+    #Using Backward Substituion to solve system of linear equations that are Upper triangular
     system = build_equations(u, y)
-    x = back_sub(system)
+    x = Matrix(back_sub(system), rows = A.get_columns(), columns = b.get_columns())
         
     return x
 
