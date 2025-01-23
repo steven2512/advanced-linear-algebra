@@ -11,5 +11,3 @@ def gcd(num1: int, num2: int):
         
 
     return divisor
-
-print(gcd(1455,14141415))

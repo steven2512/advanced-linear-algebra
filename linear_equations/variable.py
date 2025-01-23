@@ -7,8 +7,6 @@ class Variable:
         return self.symbol
     def get_exponent(self):
         return self.exponent
-    def set_value(self, value):
-        self.value = value
     def __str__(self):
         return f"{self.symbol}{'^'+str(self.exponent) if self.exponent != 1 else ''}" if self.exponent!=0 else ''
 
