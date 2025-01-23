@@ -4,8 +4,6 @@ from matrix_operations.matrix import Matrix
 
 def forward_sub(system: list[Equation]) -> list[float]:
     result = [0] * len(system)
-    print(f"Current system[0] is {system[0]}")
-    # pdb.set_trace()
     current = solve(system[0], 'a1').get_terms()[0].get_coefficient()
     result[0] = current
     for i in range(1, len(system)):

@@ -15,9 +15,13 @@ class Matrix:
         return self.content
     
     def get_column_content(self, no: int):
+        if no>=self.columns:
+            raise ValueError(f"Column number is not valid")
         return[self.get_content()[i*self.columns + no] for i in range(self.get_rows())]
     
     def get_row_content(self, no: int):
+        if no>=self.rows:
+            raise ValueError(f"Row number is not valid")
         return[self.get_content()[no*self.columns + i] for i in range(self.get_columns())]
     def is_valid(self):
         """Return a Boolean to confirm validity of a matrix"""
@@ -33,8 +37,6 @@ class Matrix:
         content = self.content
         for i in range(self.rows):
             for j in range(self.columns):
-                
-                print(final)
                 final+=str(content[self.columns * i + j])
                 final+='   '
             if i <self.rows-1:

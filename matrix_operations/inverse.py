@@ -51,10 +51,8 @@ def inverse(A: Matrix):
     final = []
     for i in range(A.get_columns()):
         final.extend(lu_solve(A, Matrix(I.get_column_content(i), I.get_rows(), 1)))
-        
-    inverse = Matrix(content= final, rows = A.get_rows(), columns = A.get_columns())
 
-
+    inverse = tranpose(Matrix(content= final, rows = A.get_rows(), columns = A.get_columns()))
 
     return inverse
 

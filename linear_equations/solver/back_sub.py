@@ -11,5 +11,4 @@ def back_sub(system: list[Equation]) -> list[float]:
             back = back.substitute(f'a{j+1}', result[j])
         current = solve(back, f'a{i+1}').get_terms()[0].get_coefficient()
         result[i] = current
-    # pdb.set_trace()
     return result
