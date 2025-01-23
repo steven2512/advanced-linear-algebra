@@ -16,8 +16,8 @@ def forward_sub(system: list[Equation]) -> list[float]:
     return result
 
 
-A = Matrix([2,0,0,-1,3,0,4,1,1], 3, 3)
-b = Matrix([4,5,10], 3, 1)
-system = build_equations(A, b)
-print(*system)
-print(forward_sub(system))
+# A = Matrix([2,0,0,-1,3,0,4,1,1], 3, 3)
+# b = Matrix([4,5,10], 3, 1)
+# system = build_equations(A, b)
+# print(*system)
+# print(forward_sub(system))

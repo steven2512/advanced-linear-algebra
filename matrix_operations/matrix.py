@@ -13,6 +13,12 @@ class Matrix:
         return self.columns
     def get_content(self):
         return self.content
+    
+    def get_column_content(self, no: int):
+        return[self.get_content()[i*self.columns + no] for i in range(self.get_rows())]
+    
+    def get_row_content(self, no: int):
+        return[self.get_content()[no*self.columns + i] for i in range(self.get_columns())]
     def is_valid(self):
         """Return a Boolean to confirm validity of a matrix"""
         if (len(self.content) % self.columns) != 0 or (len(self.content) // self.columns) != self.rows:
@@ -37,7 +43,7 @@ class Matrix:
     
 def identity(n: int):
     return Matrix(
-        content = [1 if i == (i % n)*n + i else 0 for i in range(n**2)], rows = n, 
+        content = [1 if i == (i % n)*n + (i % n) else 0 for i in range(n**2)], rows = n, 
         columns = n)
             
 

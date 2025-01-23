@@ -1,8 +1,10 @@
-from matrix_operations.matrix import Matrix
+from matrix_operations.matrix import Matrix, identity
 from matrix_operations.determinant import determinant
 from matrix_decompositions.lu import lu
 from matrix_operations.tranpose import tranpose
 from matrix_operations.scalar import scalar
+from linear_equations.solver.lu_solve import lu_solve 
+import pdb
 
 
 def inverse(A: Matrix):
@@ -45,18 +47,28 @@ def inverse(A: Matrix):
 
     #nxn case
     l,u = lu(A)
+    I = identity(A.get_columns())
+    final = []
+    # pdb.set_trace()
+    for i in range(A.get_columns()):
+        final.append(lu_solve(A, Matrix(I.get_column_content(i), I.get_rows(), 1)))
 
-    
-    
+    inverse = Matrix(content= final, rows = A.get_rows(), columns = A.get_columns())
+
 
 
     return inverse
 
-# #Test case 3x3
-# A = Matrix(content = [2, -1, 3, 0, 4, -2, 5, 1, 1],
-#            rows = 3,
-#            columns = 3)
-# print(inverse(A))
+#Test case 3x3
+A = Matrix(content = [
+    4, 1, 1, 1,
+    2, 5, 1, 1,
+    1, 1, 6, 1,
+    1, 1, 1, 7
+], rows = 4, columns = 4)
+
+
+print(inverse(A))
 
 # print(inverse(Matrix([2,7,8,0,7,1,0,0,9], rows = 3, columns = 3)))
 

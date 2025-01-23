@@ -1,5 +1,6 @@
 from linear_equations.equation import Equation
-from linear_equations.solver import solve
+from linear_equations.solver.solve import solve
+import pdb
 def back_sub(system: list[Equation]) -> list[float]:
     result = [0] * len(system)
     current = solve(system[-1], 'a'*len(system)).get_terms()[0].get_coefficient()
@@ -10,4 +11,5 @@ def back_sub(system: list[Equation]) -> list[float]:
             back = back.substitute('a'*(j+1), result[j])
         current = solve(back, 'a'*(i+1)).get_terms()[0].get_coefficient()
         result[i] = current
+    # pdb.set_trace()
     return result
