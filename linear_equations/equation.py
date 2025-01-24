@@ -24,7 +24,6 @@ class Equation:
         for i in range(len(lhs_terms)):
             if lhs_terms[i].get_variable().get_symbol() == variable:
                 lhs_terms[i] = Term(lhs_terms[i].get_coefficient()*value)
-        # pdb.set_trace()
         for j in range(len(rhs_terms)):
             if rhs_terms[j].get_variable().get_symbol() == variable:
                 rhs_terms[j] = Term(rhs_terms[j].get_coefficient()*value)
