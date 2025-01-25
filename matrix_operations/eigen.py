@@ -21,18 +21,19 @@ def eigenvalue(A: Matrix):
     return eigenvalues
 
 
-def eigenvector(A: Matrix, eigenvalue : float):
-    "Return a normalized eigenvector of matrix A of eigenvalue Lambda"
+def eigenvector(A: Matrix, eigenvalues : list[float]):
+    "Return a normalized eigenvectors of matrix A of eigenvalues Lambda 1,2,... n"
     n = A.get_columns()
-    new_matrix = subtraction(
-        A, 
-        scalar(identity(n), eigenvalue,
-        ))
-    eigenvector = lu_solve(new_matrix, Matrix(content = [0]*n, rows = n, columns = 1)).normalize_vector()
+    eigenvectors = []
+    for eigenvalue in eigenvalues:
+        new_matrix = subtraction(
+            A, 
+            scalar(identity(n), eigenvalue,
+            ))
+        eigenvectors.append(lu_solve(new_matrix, Matrix(content = [0]*n, rows = n, columns = 1)).normalize_vector())
 
-    return eigenvector
+    return eigenvectors
 
-
-# #Test cases
-# A = Matrix(content = [4,2,1,3], rows =2, columns = 2)
-# print(eigenvector(A, eigenvalue(A)[1]))
+#Test cases
+A = Matrix(content = [4,2,1,3], rows =2, columns = 2)
+print(*eigenvector(A, eigenvalue(A)))
