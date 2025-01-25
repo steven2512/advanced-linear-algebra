@@ -10,6 +10,8 @@ import math
 import pdb
 
 def eigenvalue(A: Matrix):
+    A.is_valid()
+    A.is_square()
     eigenvalues = []
     #2X2 case
     content = A.get_content()
@@ -34,6 +36,6 @@ def eigenvector(A: Matrix, eigenvalues : list[float]):
 
     return eigenvectors
 
-#Test cases
-A = Matrix(content = [4,2,1,3], rows =2, columns = 2)
-print(*eigenvector(A, eigenvalue(A)))
+# #Test cases
+# A = Matrix(content = [4,2,1,3], rows =2, columns = 2)
+# print(*eigenvector(A, eigenvalue(A)))
