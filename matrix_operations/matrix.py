@@ -15,7 +15,7 @@ class Matrix:
         return self.columns
     def get_content(self):
         return self.content
-    def norm(self, n: int = 2):
+    def get_norm(self, n: int = 2):
         sum = 0
         for i in range(len(self.content)):
             sum += pow(self.content[i],n)
@@ -25,7 +25,7 @@ class Matrix:
             raise ValueError(f"Can not normalize a non-vector object")
         new_content = []
         for i in range(len(self.content)):
-            new_content.append(self.content[i] / self.norm())
+            new_content.append(self.content[i] / self.get_norm())
 
         return Matrix(new_content, self.get_rows(), self.get_columns())
     def get_column_content(self, no: int):

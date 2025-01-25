@@ -8,7 +8,7 @@ def dot(v: Matrix, q: Matrix):
     elif len(v) != len(q):
         raise ValueError(f"v and q does have equal dimensions")
     dot = 0
-    for i in range(v.get_content()):
+    for i in range(len(v)):
         dot += v.get_content()[i] * q.get_content()[i]
 
     return dot
