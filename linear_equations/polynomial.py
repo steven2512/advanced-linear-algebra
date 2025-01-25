@@ -42,7 +42,6 @@ class Polynomial:
 
         if not new_terms:
             new_terms.append(Term(0))
-
         self.terms = new_terms
 
 

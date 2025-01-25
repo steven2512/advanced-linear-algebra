@@ -1,3 +1,5 @@
+import math
+
 class Matrix:
     """A class represents a mathematical matrix defined by m columns and n rows"""
     def __init__(self, content=[], rows=0, columns=0):
@@ -13,7 +15,19 @@ class Matrix:
         return self.columns
     def get_content(self):
         return self.content
-    
+    def norm(self, n: int = 2):
+        sum = 0
+        for i in range(len(self.content)):
+            sum += pow(self.content[i],n)
+        return math.pow(sum, 1/n)
+    def normalize_vector(self):
+        if not self.is_vector():
+            raise ValueError(f"Can not normalize a non-vector object")
+        new_content = []
+        for i in range(len(self.content)):
+            new_content.append(self.content[i] / self.norm())
+
+        return Matrix(new_content, self.get_rows(), self.get_columns())
     def get_column_content(self, no: int):
         if no>=self.columns:
             raise ValueError(f"Column number is not valid")
@@ -46,6 +60,7 @@ class Matrix:
         return final
     
 def identity(n: int):
+
     return Matrix(
         content = [1 if i == (i % n)*n + (i % n) else 0 for i in range(n**2)], rows = n, 
         columns = n)

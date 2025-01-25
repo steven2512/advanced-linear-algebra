@@ -22,17 +22,17 @@ def eigenvalue(A: Matrix):
 
 
 def eigenvector(A: Matrix, eigenvalue : float):
+    "Return a normalized eigenvector of matrix A of eigenvalue Lambda"
     n = A.get_columns()
     new_matrix = subtraction(
         A, 
-        scalar(eigenvalue,
-        identity(n)))
-    
-    eigenvector = lu_solve(new_matrix, Matrix(content = [0]*n, rows = n, column = 1))
+        scalar(identity(n), eigenvalue,
+        ))
+    eigenvector = lu_solve(new_matrix, Matrix(content = [0]*n, rows = n, columns = 1)).normalize_vector()
 
     return eigenvector
 
 
-#Test cases
-A = Matrix(content = [4,2,1,3], rows =2, columns = 2)
-print(eigenvalue(A))
+# #Test cases
+# A = Matrix(content = [4,2,1,3], rows =2, columns = 2)
+# print(eigenvector(A, eigenvalue(A)[1]))

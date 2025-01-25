@@ -61,6 +61,8 @@ def build_equations(A: Matrix, b: Matrix) -> list[Equation]:
                 term = Term(cof, variables[j])
                 lhs.add_term(term)
         rhs.add_term(Term(b.get_content()[i]))
+        if not lhs.get_terms():
+            lhs.add_term(Term(0))
         equations[i] = Equation(lhs = lhs, rhs = rhs)
     return equations
 
