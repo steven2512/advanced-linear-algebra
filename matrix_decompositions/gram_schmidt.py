@@ -17,8 +17,8 @@ def gram_schmidt(vectors: list[Matrix]):
         u[i] = u[i].normalize_vector()
     return u
 
-v0 = Matrix([1,1,0], 3, 1)
-v1 = Matrix([1,0,1], 3, 1)
-v2 = Matrix([0,1,1], 3, 1)
+# v0 = Matrix([1,1,0], 3, 1)
+# v1 = Matrix([1,0,1], 3, 1)
+# v2 = Matrix([0,1,1], 3, 1)
 
-print(*gram_schmidt([v0, v1, v2]))
+# print(*gram_schmidt([v0, v1, v2]))
