@@ -43,6 +43,22 @@ class Matrix:
             raise ValueError("Matrix's total entries does not fit into dimensions (m x n) attributes associated")
     def is_square(self):
         return self.columns == self.rows
+    def is_upper_triangular(self):
+        upper = True
+        for i in range(1, self.rows):
+            for j in range(self.columns*i, self.columns*i + i):
+                if self.content[j] > 1e-10:
+                    upper = False
+        return upper
+    
+    def is_lower_triangular(self):
+        lower = True
+        for i in range(0, self.rows-1):
+            for j in range(i+1, self.columns - 1):
+                if self.content[j] > 1e-10:
+                    lower = False
+        return lower
+
     def __len__(self):
         """Total entries of the matrix"""
         return len(self.content)
@@ -64,6 +80,19 @@ def identity(n: int):
     return Matrix(
         content = [1 if i == (i % n)*n + (i % n) else 0 for i in range(n**2)], rows = n, 
         columns = n)
+
+
+upper_triangular_matrix = Matrix(
+    content=[
+        2, 3, 4,
+        0, 5, 6,
+        0, 0, 7
+    ],
+    rows=3,
+    columns=3
+)
+
+print(upper_triangular_matrix.is_upper_triangular())
             
 
 
